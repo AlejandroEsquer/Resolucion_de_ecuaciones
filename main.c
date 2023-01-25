@@ -9,6 +9,7 @@ typedef struct matriz{
 matriz multrow(matriz mat,int row,float mult);
 matriz restarow(matriz mat,int ren,int resta,float mult);
 matriz diagonalizamat(matriz mat);
+int escribesol(matriz mat,matriz aux);
 
 
 
@@ -22,7 +23,7 @@ int main(void){
 	scanf("%d",&ec);
 	
 	
-	 matriz mat;
+	 matriz mat,mataux;
 	mat.n=ec;
 
 
@@ -43,9 +44,11 @@ int main(void){
 		printf("\n");
 	}
 
+	mataux=mat;
 	mat=diagonalizamat(mat);
 	printf("La nueva matriz es:\n");
 	escribemat(mat);
+	escribesol(mat,mataux);
 return 0;
 	
 
@@ -114,4 +117,28 @@ int escribemat(matriz mat){
                 }
                 printf("\n");
         }
+}
+
+int escribesol(matriz mat,matriz aux){
+	int i,n=mat.n,j;
+
+	printf("\nLas ecuaciones son:\n");
+	for(i=0;i<n;i++){
+		for(j=0;j<=n;j++){
+			if(j==n)
+				printf("=");
+			printf("(%f)",aux.ent[i][j]);
+			if(j!=n){
+				printf("X%d",j);
+				if(j!=(n-1))
+					printf("+");
+			}
+		}
+		printf("\n");
+	}
+
+	printf("\nLas soluciones de las ecuaciones son:\n");
+	for(i=0;i<mat.n;i++){
+		printf("X%d = %f\n",i,mat.ent[i][n]);
+	}
 }
