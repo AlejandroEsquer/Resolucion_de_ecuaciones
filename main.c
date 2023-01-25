@@ -42,29 +42,10 @@ int main(void){
 		}
 		printf("\n");
 	}
-/*
-	printf("Escriba el renglon que desea multiplicar:");
-	scanf("%d",&row);
 
-	printf("\nEscriba el numero por el que desea multiplicar:");
-	scanf("%g",&mult);
-
-
-	printf("La nueva matriz es:");
-	mat=multrow(mat,row,mult);
-	escribemat(mat);
-
-	printf("\nEscriba el renglon al que le quiere restar:\n");
-        scanf("%d",&row);
-	printf("\nEscriba el renglon que quiere restarle al anterior\n");
-	scanf("%d",&resta);
-
-	mat=restarow(mat,row,resta);
-*/
 	mat=diagonalizamat(mat);
 	printf("La nueva matriz es:\n");
 	escribemat(mat);
-
 return 0;
 	
 
@@ -113,6 +94,11 @@ matriz diagonalizamat(matriz mat){
 		}
 	}
 
+	for(i=0;i<n;i++){
+		mat.ent[i][n]=mat.ent[i][n]/mat.ent[i][i];
+		mat.ent[i][i]=1;
+	}
+
 	return mat;
 }
 
@@ -129,4 +115,3 @@ int escribemat(matriz mat){
                 printf("\n");
         }
 }
-
