@@ -5,3 +5,4 @@ termino c. Luego se dividen ambos valores, el de la diagonal y el termino c de c
 Así obtenemos una matriz diagonal cuyos elementos en la diagonal tienen el valor "1".
 Este programa funciona para sistemas de ecuaciones con números reales y de máximo 10 ecuaciones con el mismo numero de incognitas que de ecuaciones.
 El programa está hecho en c.
+Este programa considera que ningún terminosobre la diagonal es cero.
